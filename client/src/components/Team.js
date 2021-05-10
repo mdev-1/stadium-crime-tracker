@@ -48,7 +48,7 @@ const Team = () => {
       <div>Venue: {team.venue}</div>
       <div>Address: {team.address}</div>
       <h2>Crime data</h2>
-      <div class="crime-year-selector">
+      <div className="crime-year-selector">
         Crime for year:
         <button
           className={
