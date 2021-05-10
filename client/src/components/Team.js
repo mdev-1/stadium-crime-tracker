@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
+import {
+  Button,
+  CircularProgress,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 import ArrowBack from "@material-ui/icons/ArrowBack";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 
 const Team = () => {
   const { slug } = useParams();
@@ -22,6 +24,7 @@ const Team = () => {
   const loadCrimes = (year) => {
     setShowLoading(true);
     setDisplayingYear(year);
+
     axios
       .get(`/api/team/${slug}/crime-year/${year}`)
       .then((res) => {
@@ -45,39 +48,41 @@ const Team = () => {
       <div>Venue: {team.venue}</div>
       <div>Address: {team.address}</div>
       <h2>Crime data</h2>
-      Crime for year:
-      <span
-        className={
-          "crime-year-link" + (displayingYear === 2018 ? " active" : "")
-        }
-        onClick={() => loadCrimes(2018)}
-      >
-        2018
-      </span>
-      <span
-        className={
-          "crime-year-link" + (displayingYear === 2019 ? " active" : "")
-        }
-        onClick={() => loadCrimes(2019)}
-      >
-        2019
-      </span>
-      <span
-        className={
-          "crime-year-link" + (displayingYear === 2020 ? " active" : "")
-        }
-        onClick={() => loadCrimes(2020)}
-      >
-        2020
-      </span>
-      <span
-        className={
-          "crime-year-link" + (displayingYear === 2021 ? " active" : "")
-        }
-        onClick={() => loadCrimes(2021)}
-      >
-        2021
-      </span>
+      <div class="crime-year-selector">
+        Crime for year:
+        <span
+          className={
+            "crime-year-link" + (displayingYear === 2018 ? " active" : "")
+          }
+          onClick={() => loadCrimes(2018)}
+        >
+          2018
+        </span>
+        <span
+          className={
+            "crime-year-link" + (displayingYear === 2019 ? " active" : "")
+          }
+          onClick={() => loadCrimes(2019)}
+        >
+          2019
+        </span>
+        <span
+          className={
+            "crime-year-link" + (displayingYear === 2020 ? " active" : "")
+          }
+          onClick={() => loadCrimes(2020)}
+        >
+          2020
+        </span>
+        <span
+          className={
+            "crime-year-link" + (displayingYear === 2021 ? " active" : "")
+          }
+          onClick={() => loadCrimes(2021)}
+        >
+          2021
+        </span>
+      </div>
       {showLoading ? (
         <div>
           <CircularProgress />

@@ -4,7 +4,7 @@ const TeamListItem = ({ name, venue, address }) => {
   return (
     <div>
       <h2>{name}</h2>
-      <div>{venue}</div>
+      <div className="venue-name">{venue}</div>
       <div>{address}</div>
     </div>
   );

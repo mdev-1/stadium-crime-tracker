@@ -8,6 +8,14 @@
   text-decoration: none;
 }
 
+.venue-name {
+  font-weight: bold;
+}
+
+.crime-year-selector {
+  margin-bottom: 8px;
+}
+
 .crime-year-link {
   cursor: pointer;
   margin-left: 8px;
