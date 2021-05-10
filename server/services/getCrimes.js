@@ -42,9 +42,13 @@ export const getCrimes = async (latLong, year) => {
     );
   }
 
+  /**
+   * Extracts out the response data from each API request, flattens it into a single
+   * array and then swaps category names out for their pretty names
+   */
   await Promise.all(apiRequests)
     .then((responses) => {
-      crimes = responses.map((resp) => resp.data || []);
+      crimes = responses.map((res) => res.data || []);
       crimes = [].concat(...crimes);
 
       crimes.map((crime) => {
