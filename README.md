@@ -10,14 +10,14 @@ Technologies used include:
 - Express
   - Axios
     - Request throttling to avoid rate limiting
-  - ES6 features
+  - ES6+ features
 - React
   - Axios
   - Functional components
   - Hooks (useState, useEffect)
   - React Router
   - Material UI
-  - ES6 features
+  - ES6+ features
 
 ## 🚀 Running this project
 
