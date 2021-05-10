@@ -50,38 +50,38 @@ const Team = () => {
       <h2>Crime data</h2>
       <div class="crime-year-selector">
         Crime for year:
-        <span
+        <button
           className={
             "crime-year-link" + (displayingYear === 2018 ? " active" : "")
           }
           onClick={() => loadCrimes(2018)}
         >
           2018
-        </span>
-        <span
+        </button>
+        <button
           className={
             "crime-year-link" + (displayingYear === 2019 ? " active" : "")
           }
           onClick={() => loadCrimes(2019)}
         >
           2019
-        </span>
-        <span
+        </button>
+        <button
           className={
             "crime-year-link" + (displayingYear === 2020 ? " active" : "")
           }
           onClick={() => loadCrimes(2020)}
         >
           2020
-        </span>
-        <span
+        </button>
+        <button
           className={
             "crime-year-link" + (displayingYear === 2021 ? " active" : "")
           }
           onClick={() => loadCrimes(2021)}
         >
           2021
-        </span>
+        </button>
       </div>
       {showLoading ? (
         <div>

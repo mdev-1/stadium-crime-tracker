@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const TeamListItem = ({ name, venue, address }) => {
   return (
@@ -8,6 +9,12 @@ const TeamListItem = ({ name, venue, address }) => {
       <div>{address}</div>
     </div>
   );
+};
+
+TeamListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  venue: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
 };
 
 export default TeamListItem;
