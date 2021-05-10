@@ -1,4 +1,4 @@
-import api from "../services/api.js";
+import api from "./api.js";
 import { CrimePrettyNames } from "../data/CrimePrettyNames.js";
 
 /**

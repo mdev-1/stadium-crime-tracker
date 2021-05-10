@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Team from "./Team";
 import { Router, Route } from "react-router-dom";
 import { createMemoryHistory } from "history";
+import Team from "./Team";
 
 // Helper function
 export function renderWithRouterMatch(

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import TeamListItem from "./TeamListItem";
 import { Grid, Card, CardActionArea, CardContent } from "@material-ui/core";
+import TeamListItem from "./TeamListItem";
 
 const TeamList = () => {
   const [teams, setTeams] = useState([]);

@@ -1,4 +1,4 @@
-import api from "../services/api.js";
+import api from "./api.js";
 
 /**
  * Gets LatLong for a stadium

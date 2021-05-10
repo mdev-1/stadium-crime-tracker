@@ -1,4 +1,4 @@
-import api from "../services/api.js";
+import api from "./api.js";
 import config from "config";
 import { getLatLong } from "../services/getLatLong.js";
 
