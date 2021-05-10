@@ -119,6 +119,10 @@ There are two client screens.
 
 `http://localhost:3000/team/[team slug]`
 
+## 🧪 Tests
+
+A small test suite can be run in `/clients` with `npm test`.
+
 ## 📝 General notes
 
 - I saw different rate limiting on the Police API than they have in their documentation. The documentation states a rate limit of 15 requests per second, with a burst of 30. In my testing I found 12 requests per second was generally reliable, however 13+ quite consistently gave me a 429. I implemented throttling in axios interceptors to handle this.
@@ -126,10 +130,10 @@ There are two client screens.
 
 ## 📈 To do & future feature ideas
 
-- Update to TS and add models for data entities (i.e. Team, Stadium, Crime)
+- Update to use TypeScript
 - General improvements to structure and design
-- Add more tests inc. mocking APIs (you can only run a single client test currently with `npm test`)
-- Make the client year selection dynamic (everything else should be already)
+- Add more tests inc. mocking APIs
+- Make the client year selection options dynamic
 - More graceful error handling
 - Feature idea: Analysis on data e.g. in months when a team lost more games at home were there more or less crimes?
 - Consider adding caching layer as data won't change very often
