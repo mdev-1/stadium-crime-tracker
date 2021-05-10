@@ -1,0 +1,19 @@
+* {
+  font-family: sans-serif;
+}
+
+.team-link {
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+}
+
+.crime-year-link {
+  cursor: pointer;
+  margin-left: 8px;
+  text-decoration: underline;
+}
+
+.crime-year-link.active {
+  text-decoration: none;
+}
