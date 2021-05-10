@@ -15,7 +15,7 @@ Technologies used include:
   - Axios
   - Functional components
   - Hooks (useState, useEffect)
-  - Router
+  - React Router
   - Material UI
   - ES6 features
 
@@ -25,7 +25,7 @@ You will need both the server and the client running.
 
 **Server**
 
-- Create `/server/config/default.json` and add your football-data.org API key
+- Create `/server/config/default.json` from the `default.dist.json` and add your football-data.org API key
 - cd into `/server` and run `npm install && npm start`
 
 **Client**
@@ -42,7 +42,7 @@ Request: `GET http://localhost:5000/api/teams`
 
 Response:
 
-```json
+```javascript
 [
   {
     name: "Arsenal FC",
@@ -76,7 +76,7 @@ Request: `GET http://localhost:5000/api/team/[team slug]/crime-year/[year]`
 
 Response:
 
-```json
+```javascript
 {
   name: "Arsenal FC",
   venue: "Emirates Stadium",
