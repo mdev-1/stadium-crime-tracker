@@ -1,8 +1,8 @@
-# ⚽️ Stadium Crime Jamstack Application
+# ⚽️ Stadium Crime Tracker
 
-Created by Matt Gannon.
+Jamstack application created by Matt Gannon.
 
-## 🧑‍💻 Overview:
+## 🧑‍💻 Overview
 
 Technologies used include:
 
