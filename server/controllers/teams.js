@@ -4,15 +4,20 @@ import config from "config";
 
 let teamData;
 
+/**
+ * Gets team information and associated LatLongs for their stadiums
+ */
 const getTeamData = async () => {
   const options = {
     headers: { "X-Auth-Token": config.get("footballApiKey") },
   };
 
+  // get list of teams, ID 2021 maps to the Premier League
   await api
     .get("https://api.football-data.org/v2/competitions/2021/teams", options)
     .then(async function (response) {
       teamData = response.data.teams.map((team) => {
+        // assumption: the postcode is always the last two space-separated elements of the address string
         let formattedPostcode = team.address.split(" ").slice(-2).join("");
         let slug = team.name
           .toLowerCase()
@@ -32,6 +37,7 @@ const getTeamData = async () => {
       console.log("Error getting team data: " + error.message);
     });
 
+  // get the LatLong for each team
   await Promise.all(
     teamData.map(async (team) => {
       team.latLong = await getLatLong(team.formattedPostcode);
@@ -41,6 +47,12 @@ const getTeamData = async () => {
   );
 };
 
+/**
+ * Gets LatLong for a stadium
+ *
+ * @param {string} postcode The postcode for the stadium
+ * @return {Object} Object with the lat and long for the stadium
+ */
 const getLatLong = async (postcode) => {
   let lat, long;
 
@@ -57,6 +69,13 @@ const getLatLong = async (postcode) => {
   return { lat, long };
 };
 
+/**
+ * Gets crimes for a LatLong
+ *
+ * @param {Object} latLong The latLong for a given stadium
+ * @param {number} year The year of data to retrieve
+ * @return {Array} The list of crimes retrieved
+ */
 const getCrimes = async (latLong, year) => {
   let crimes;
   let minMonth = 1;
@@ -64,10 +83,20 @@ const getCrimes = async (latLong, year) => {
   let currentDate = new Date();
   let apiRequests = [];
 
+  /**
+   * The Police API supports data starting from the previous month, 3 years ago.
+   * E.g. If the current date is in May 2021, the Police API has data from April 2018.
+   * As getMonth() in Javascript is zero-indexed, we use that so that for example May will return 4.
+   * However the Police API is not zero indexed, so 4 can be formatted to 04 to retrieve data for April.
+   */
   if (year == currentDate.getFullYear() - 3) {
     minMonth = currentDate.getMonth();
   }
 
+  /**
+   * The Police API supports data until the previous month of the current year.
+   * E.g. If the current date is in May 2021, the Police API has data until April 2021.
+   */
   if (year == currentDate.getFullYear()) {
     maxMonth = currentDate.getMonth();
   }
@@ -99,6 +128,9 @@ const getCrimes = async (latLong, year) => {
   return crimes;
 };
 
+/**
+ * Gets list of teams
+ */
 export const getTeams = async (req, res) => {
   try {
     if (!teamData) await getTeamData();
@@ -109,6 +141,9 @@ export const getTeams = async (req, res) => {
   }
 };
 
+/**
+ * Gets single team
+ */
 export const getTeam = async (req, res) => {
   if (!teamData) await getTeamData();
 
