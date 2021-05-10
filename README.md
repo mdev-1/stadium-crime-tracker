@@ -113,11 +113,11 @@ There are two client screens.
 
 **View all teams**
 
-http://localhost:3000
+`http://localhost:3000`
 
 **View single team**
 
-http://localhost:3000/team/[team slug]
+`http://localhost:3000/team/[team slug]`
 
 ## 📝 General notes
 
@@ -127,6 +127,7 @@ http://localhost:3000/team/[team slug]
 ## 📈 To do & future feature ideas
 
 - Update to TS and add models for data entities (i.e. Team, Stadium, Crime)
+- General improvements to structure and design
 - Add more tests inc. mocking APIs (you can only run a single client test currently with `npm test`)
 - Make the client year selection dynamic (everything else should be already)
 - More graceful error handling
